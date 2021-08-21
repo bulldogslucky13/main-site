@@ -5,7 +5,13 @@ export default class Document extends NextDocument {
 	render() {
 		return (
 			<Html lang="en">
-				<Head />
+				<Head>
+					<meta
+						name="description"
+						content="
+						I'm a Full-Stack Web Developer with specialities in awesome user interface, design, and functionality."
+					/>
+				</Head>
 				<body>
 					<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 					<Main />
