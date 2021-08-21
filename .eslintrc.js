@@ -10,6 +10,7 @@ module.exports = {
 			},
 		},
 	},
+	plugins: ['unused-imports'],
 	overrides: [
 		{
 			files: ['*.stories.tsx', 'src/pages/**/*.ts', 'src/pages/**/*.tsx', 'src/__mocks__/**/*.ts'],
@@ -26,12 +27,20 @@ module.exports = {
 		},
 	],
 	rules: {
+		'@typescript-eslint/no-use-before-define': [
+			'warn',
+			{
+				functions: false,
+				typedefs: false,
+			},
+		],
 		'no-restricted-imports': [
 			'error',
 			{
 				patterns: ['../*'],
 			},
 		],
+		'@typescript-eslint/no-unused-vars': 'off',
 		'sonarjs/cognitive-complexity': 'off',
 		'sonarjs/no-duplicate-string': 'off',
 		complexity: 'off',
