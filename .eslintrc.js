@@ -1,6 +1,7 @@
 module.exports = {
 	extends: ['plugin:@next/next/recommended'],
-	parser: 'babel-eslint',
+	parser: '@typescript-eslint/parser',
+	plugins: ['@typescript-eslint', 'sonarjs'],
 	parserOptions: { project: './tsconfig.eslint.json' },
 	settings: {
 		'import/resolver': {
@@ -10,7 +11,6 @@ module.exports = {
 			},
 		},
 	},
-	plugins: ['unused-imports'],
 	overrides: [
 		{
 			files: ['*.stories.tsx', 'src/pages/**/*.ts', 'src/pages/**/*.tsx', 'src/__mocks__/**/*.ts'],
@@ -26,21 +26,20 @@ module.exports = {
 			},
 		},
 	],
+	plugins: ['unused-imports'],
 	rules: {
-		'@typescript-eslint/no-use-before-define': [
-			'warn',
-			{
-				functions: false,
-				typedefs: false,
-			},
-		],
 		'no-restricted-imports': [
 			'error',
 			{
 				patterns: ['../*'],
 			},
 		],
-		'@typescript-eslint/no-unused-vars': 'off',
+		'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+		'unused-imports/no-unused-imports': 'error',
+		'unused-imports/no-unused-vars': [
+			'warn',
+			{ vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+		],
 		'sonarjs/cognitive-complexity': 'off',
 		'sonarjs/no-duplicate-string': 'off',
 		complexity: 'off',
