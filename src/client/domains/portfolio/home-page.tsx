@@ -67,7 +67,7 @@ export const HomePage: FC = () => {
 					</VStack>
 				</Stack>
 				<Text position="absolute" fontSize="lg" bottom={10}>
-					Keep scrolling... I know you want to
+					Keep scrolling... you know you want to
 				</Text>
 			</Center>
 			<Center h="50vh" px={10}>
