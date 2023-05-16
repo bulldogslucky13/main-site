@@ -7,7 +7,7 @@ const headers = async () => [
 		source: '/',
 		headers: [
 			{
-				key: 'X-Jarvis-Version',
+				key: 'X-Portfolio-Version',
 				value: version,
 			},
 		],

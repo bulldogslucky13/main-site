@@ -1,5 +1,4 @@
 module.exports = {
-	extends: ['plugin:@next/next/recommended'],
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint', 'sonarjs'],
 	parserOptions: { project: './tsconfig.eslint.json' },
@@ -24,6 +23,10 @@ module.exports = {
 				'import/no-extraneous-dependencies': 'off',
 				'no-console': 'off',
 			},
+		},
+		{
+			files: ['*.ts', '*.tsx'],
+			extends: ['plugin:@next/next/recommended'],
 		},
 	],
 	plugins: ['unused-imports'],

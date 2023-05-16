@@ -1,17 +1,13 @@
-import { Center, ColorMode, Flex, Heading } from '@chakra-ui/react';
 import React, { FC } from 'react';
 
-export type ExperienceSectionProps = {
-	colorMode: ColorMode;
-	toggleColorMode: () => void;
-};
+type ExperienceSectionProps = {};
 
 export const ExperienceSection: FC<ExperienceSectionProps> = () => (
-	<Center h="50vh" px={10} mx={10}>
-		<Flex flex={1} justifyContent={['flex-start', 'flex-start', 'center']}>
-			<Heading as="h3" textTransform="uppercase">
+	<div className="flex w-full min-h-[50vh] px-5 sm:px-10">
+		<div className="flex-1">
+			<h3 className="font-bold text-2xl lg:text-4xl text-uppercase text-left lg:text-center text-slate-800 dark:text-slate-50">
 				My Projects/Work
-			</Heading>
-		</Flex>
-	</Center>
+			</h3>
+		</div>
+	</div>
 );
