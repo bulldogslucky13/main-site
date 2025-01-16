@@ -12,7 +12,7 @@
 	"dependencies": {
 		"autoprefixer": "^10.4.14",
 		"framer-motion": "^4.1.17",
-		"next": "^11.1.4",
+		"next": "^12.3.4",
 		"next-compose-plugins": "^2.2.1",
 		"next-fonts": "^1.5.1",
 		"postcss": "^8.4.27",
