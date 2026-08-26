@@ -1,33 +1,48 @@
 import Head from 'next/head';
 
 const REGISTRATION_URL = 'https://wildwood.ccbchurch.com/goto/forms/674/responses/new';
-const PAGE_URL = 'https://cameronbristol.xyz/mens-summit-2026';
-const OG_IMAGE_URL = 'https://cameronbristol.xyz/mens-summit-2026/og-image.jpg';
-const TITLE = "Men's Summit 2026 — Wildwood";
+// Canonical host: the bare domain 308-redirects here, and some scrapers don't follow redirects.
+const PRODUCTION_URL = 'https://www.cameronbristol.xyz';
+const TITLE = 'Men’s Summit 2026 — Wildwood Community Church';
 const DESCRIPTION =
-	"God's Man — Wildwood's first-ever Men's Summit. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Registration $25.";
+	'God’s Man — the first-ever Men’s Summit at Wildwood Community Church. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Registration $25.';
+
+// Social scrapers require absolute URLs, and a preview deploy's assets don't exist on the
+// production domain yet — so previews have to advertise their own deployment URL instead.
+export function getStaticProps() {
+	const { VERCEL_ENV, VERCEL_URL } = process.env;
+	const baseUrl =
+		VERCEL_ENV && VERCEL_ENV !== 'production' && VERCEL_URL
+			? `https://${VERCEL_URL}`
+			: PRODUCTION_URL;
+
+	return { props: { baseUrl } };
+}
 
 // Temporary event landing page — delete this file and public/mens-summit-2026/ when the event is over.
-export default function MensSummit2026() {
+export default function MensSummit2026({ baseUrl }: { baseUrl: string }) {
+	const pageUrl = `${baseUrl}/mens-summit-2026`;
+	const ogImageUrl = `${pageUrl}/og-image.jpg`;
+
 	return (
 		<>
 			<Head>
-				<title>Men&rsquo;s Summit 2026 — Wildwood</title>
+				<title>{TITLE}</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta name="description" content={DESCRIPTION} />
 
 				<meta property="og:type" content="website" />
-				<meta property="og:url" content={PAGE_URL} />
+				<meta property="og:url" content={pageUrl} />
 				<meta property="og:title" content={TITLE} />
 				<meta property="og:description" content={DESCRIPTION} />
-				<meta property="og:image" content={OG_IMAGE_URL} />
+				<meta property="og:image" content={ogImageUrl} />
 				<meta property="og:image:width" content="1200" />
 				<meta property="og:image:height" content="630" />
 
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content={TITLE} />
 				<meta name="twitter:description" content={DESCRIPTION} />
-				<meta name="twitter:image" content={OG_IMAGE_URL} />
+				<meta name="twitter:image" content={ogImageUrl} />
 
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
