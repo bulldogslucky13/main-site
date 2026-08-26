@@ -1,6 +1,11 @@
 import Head from 'next/head';
 
 const REGISTRATION_URL = 'https://wildwood.ccbchurch.com/goto/forms/674/responses/new';
+const PAGE_URL = 'https://cameronbristol.xyz/mens-summit-2026';
+const OG_IMAGE_URL = 'https://cameronbristol.xyz/mens-summit-2026/og-image.jpg';
+const TITLE = "Men's Summit 2026 — Wildwood";
+const DESCRIPTION =
+	"God's Man — Wildwood's first-ever Men's Summit. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Registration $25.";
 
 // Temporary event landing page — delete this file and public/mens-summit-2026/ when the event is over.
 export default function MensSummit2026() {
@@ -9,10 +14,21 @@ export default function MensSummit2026() {
 			<Head>
 				<title>Men&rsquo;s Summit 2026 — Wildwood</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta
-					name="description"
-					content="God's Man — Wildwood's first-ever Men's Summit. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Registration $25."
-				/>
+				<meta name="description" content={DESCRIPTION} />
+
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content={PAGE_URL} />
+				<meta property="og:title" content={TITLE} />
+				<meta property="og:description" content={DESCRIPTION} />
+				<meta property="og:image" content={OG_IMAGE_URL} />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content={TITLE} />
+				<meta name="twitter:description" content={DESCRIPTION} />
+				<meta name="twitter:image" content={OG_IMAGE_URL} />
+
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 				<link
