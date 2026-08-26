@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+	Source artboard for og-image.jpg (the link-preview card).
+	Edit this, then re-render at exactly 1200x630 and save over og-image.jpg:
+
+	  npm run dev
+	  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
+	    --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 \
+	    --screenshot=og.png http://localhost:3000/mens-summit-2026/og-image.source.html
+	  sips -s format jpeg -s formatOptions 90 og.png --out public/mens-summit-2026/og-image.jpg
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: #000;
+			}
+			.card {
+				--gold: #d4a94e;
+				--gold-light: #e9cb82;
+				--cream: #f2ead3;
+				--navy-dark: #04060b;
+				position: relative;
+				width: 1200px;
+				height: 630px;
+				overflow: hidden;
+				background: linear-gradient(150deg, #04060b 0%, #081020 55%, #0c1830 100%);
+				font-family: 'Oswald', 'Avenir Next Condensed', 'Arial Narrow', sans-serif;
+			}
+			.grain {
+				position: absolute;
+				inset: 0;
+				opacity: 0.05;
+				pointer-events: none;
+				background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSIyIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjbikiLz48L3N2Zz4=');
+			}
+			.motif {
+				position: absolute;
+				right: -110px;
+				bottom: -30px;
+				width: 700px;
+				pointer-events: none;
+			}
+			.logo {
+				position: absolute;
+				top: 58px;
+				left: 72px;
+				width: 100px;
+				opacity: 0.95;
+			}
+			.content {
+				position: absolute;
+				left: 72px;
+				top: 190px;
+			}
+			.eyebrow {
+				margin-bottom: 20px;
+				font-weight: 600;
+				font-size: 24px;
+				letter-spacing: 0.3em;
+				text-transform: uppercase;
+				color: var(--gold);
+			}
+			.headline {
+				font-weight: 700;
+				font-size: 140px;
+				line-height: 0.88;
+				letter-spacing: 0.005em;
+				text-transform: uppercase;
+			}
+			.headline .l1 {
+				display: block;
+				color: var(--cream);
+			}
+			.headline .l2 {
+				display: block;
+				color: var(--gold-light);
+			}
+			.bar {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 86px;
+				padding: 0 72px;
+				display: flex;
+				align-items: center;
+				gap: 22px;
+				background: var(--gold);
+				font-weight: 600;
+				font-size: 27px;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: var(--navy-dark);
+			}
+			.bar .sep {
+				opacity: 0.4;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<svg class="motif" viewBox="0 0 1300 1150" fill="none">
+				<circle cx="610" cy="590" r="520" stroke="#D4A94E" stroke-width="1.5" opacity="0.14" />
+				<circle cx="610" cy="590" r="452" stroke="#D4A94E" stroke-width="1" opacity="0.07" />
+				<polygon points="230,1150 660,330 1090,1150" fill="#152747" />
+				<polygon points="540,1150 885,510 1235,1150" fill="#1D3560" />
+				<polyline points="230,1150 660,330 900,790" stroke="#D4A94E" stroke-width="3" opacity="0.6" />
+				<polyline points="755,755 885,510 1201,1090" stroke="#D4A94E" stroke-width="2.5" opacity="0.4" />
+			</svg>
+			<div class="grain"></div>
+			<img class="logo" src="./logo_cream.svg" alt="" />
+			<div class="content">
+				<div class="eyebrow">Men&rsquo;s Summit 2026</div>
+				<div class="headline">
+					<span class="l1">God&rsquo;s</span><span class="l2">Man</span>
+				</div>
+			</div>
+			<div class="bar">
+				<span>Sat Sep 26</span>
+				<span class="sep">&bull;</span>
+				<span>8:00 AM</span>
+				<span class="sep">&bull;</span>
+				<span>Fellowship Hall</span>
+				<span class="sep">&bull;</span>
+				<span>$25</span>
+			</div>
+		</div>
+	</body>
+</html>
