@@ -19,7 +19,7 @@ type AgendaItem = { time: string; title: string; speaker?: string };
 const AGENDA: AgendaItem[] = [
 	{ time: '8:00 – 8:30', title: 'Registration / Breakfast / Fellowship' },
 	{ time: '8:30 – 9:00', title: 'Welcome / Prayer / Worship' },
-	{ time: '9:00 – 10:00', title: 'Keynote 1: God’s Man in the Home', speaker: 'John Abernathy' },
+	{ time: '9:00 – 10:00', title: 'Keynote 1: God’s Man in the Home', speaker: 'John Abernethy' },
 	{ time: '10:00 – 10:40', title: 'Q & A with Pastors / Elders' },
 	{ time: '10:40 – 10:45', title: 'Break' },
 	{ time: '10:45 – 11:45', title: 'Keynote 2: God’s Man in the Church', speaker: 'Phil Kemp' },
