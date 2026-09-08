@@ -6,7 +6,7 @@ const REGISTRATION_URL = 'https://wildwood.ccbchurch.com/goto/forms/674/response
 const PRODUCTION_URL = 'https://www.cameronbristol.xyz';
 const TITLE = 'Men’s Summit 2026 — Wildwood Community Church';
 const DESCRIPTION =
-	'God’s Man — the first-ever Men’s Summit at Wildwood Community Church. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Men 18 and up. Registration $25.';
+	'God’s Man — the first-ever Men’s Summit at Wildwood Community Church. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Men 18 and up. $25 includes breakfast and lunch.';
 
 const INVITATION = [
 	'What did Paul mean when he called the Corinthian men to “act like men”? And even more importantly, (since this verse is in the Bible) what does God intend for men to do in response to this call?',
@@ -183,7 +183,7 @@ export default function MensSummit2026({ baseUrl }: { baseUrl: string }) {
 					<p className="eyebrow">Join Us</p>
 					<p className="closing-line">Saturday, September 26</p>
 					<p className="closing-where">8:00 AM – 2:30 PM &middot; Fellowship Hall</p>
-					<p className="closing-sub">Men 18 and up &middot; $25</p>
+					<p className="closing-sub">Men 18 and up &middot; $25 includes breakfast and lunch</p>
 					<a className="register" href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer">
 						Register Now
 					</a>
