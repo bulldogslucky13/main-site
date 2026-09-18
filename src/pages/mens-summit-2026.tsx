@@ -6,28 +6,28 @@ const REGISTRATION_URL = 'https://wildwood.ccbchurch.com/goto/forms/674/response
 const PRODUCTION_URL = 'https://www.cameronbristol.xyz';
 const TITLE = 'Men’s Summit 2026 — Wildwood Community Church';
 const DESCRIPTION =
-	'God’s Man — the first-ever Men’s Summit at Wildwood Community Church. Saturday, September 26, 2026, 8:00 AM – 2:30 PM, Fellowship Hall. Men 18 and up. $25 includes breakfast and lunch.';
+	'God’s Man — the first-ever Men’s Summit at Wildwood Community Church. Saturday, September 26, 2026, 8:00 AM – 2:00 PM, Fellowship Hall. Men 18 and up. $25 includes breakfast and lunch.';
 
 const INVITATION = [
 	'What did Paul mean when he called the Corinthian men to “act like men”? And even more importantly, (since this verse is in the Bible) what does God intend for men to do in response to this call?',
 	'The world has a definition of what it means to be a man … but God’s definition is clear. After all, God created us on purpose and for His purpose. So what is that purpose and what does it look like to “act like men” in the home, at work, and at church, in the ways God intended?',
-	'On Saturday, September 26 from 8AM – 2:30PM, Wildwood Community Church is inviting men to a Men’s Summit, where we will journey together through the Scriptures with a half-day of teaching, worship, and fellowship.',
+	'On Saturday, September 26 from 8AM – 2:00PM, Wildwood Community Church is inviting men to a Men’s Summit, where we will journey together through the Scriptures with a half-day of teaching, worship, and fellowship.',
 ];
 
 type AgendaItem = { time: string; title: string; speaker?: string };
 
 const AGENDA: AgendaItem[] = [
-	{ time: '8:00 – 8:30', title: 'Registration / Breakfast / Fellowship' },
-	{ time: '8:30 – 9:00', title: 'Welcome / Prayer / Worship' },
-	{ time: '9:00 – 10:00', title: 'Keynote 1: God’s Man in the Home', speaker: 'John Abernethy' },
-	{ time: '10:00 – 10:40', title: 'Q & A with Pastors / Elders' },
-	{ time: '10:40 – 10:45', title: 'Break' },
-	{ time: '10:45 – 11:45', title: 'Keynote 2: God’s Man in the Church', speaker: 'Phil Kemp' },
-	{ time: '11:45 – 12:15', title: 'BBQ Lunch' },
-	{ time: '12:15 – 1:15', title: 'Keynote 3: God’s Man in the Workplace', speaker: 'Mike Beckham' },
-	{ time: '1:15 – 1:30', title: 'Something Fun' },
-	{ time: '1:30 – 2:15', title: 'Keynote 4: God’s Man with his God', speaker: 'Mark Robinson' },
-	{ time: '2:15 – 2:30', title: 'Worship / Closing Remarks and Prayer' },
+	{ time: '8:00 – 8:15', title: 'Registration / Coffee / Grab-N-Go Breakfast' },
+	{ time: '8:15 – 8:45', title: 'Welcome / Prayer / Worship' },
+	{ time: '8:45 – 9:45', title: 'Keynote 1: God’s Man in the Home', speaker: 'John Abernethy' },
+	{ time: '9:45 – 10:00', title: 'Something Fun' },
+	{ time: '10:00 – 11:00', title: 'Keynote 2: God’s Man in the Church', speaker: 'Phil Kemp' },
+	{ time: '11:00 – 11:40', title: 'Q & A with Pastors / Elders' },
+	{ time: '11:40 – 12:00', title: 'BBQ Lunch' },
+	{ time: '12:00 – 1:00', title: 'Keynote 3: God’s Man in the Workplace', speaker: 'Mike Beckham' },
+	{ time: '1:00 – 1:10', title: 'Break' },
+	{ time: '1:10 – 1:45', title: 'Keynote 4: God’s Man with his God', speaker: 'Mark Robinson' },
+	{ time: '1:45 – 2:00', title: 'Worship / Closing & Prayer' },
 ];
 
 // Social scrapers require absolute URLs, and a preview deploy's assets don't exist on the
@@ -124,7 +124,7 @@ export default function MensSummit2026({ baseUrl }: { baseUrl: string }) {
 							<div className="item">
 								8:00 AM
 								<br />
-								<span className="sub">2:30 PM</span>
+								<span className="sub">2:00 PM</span>
 							</div>
 							<div className="item">
 								FELLOWSHIP
@@ -182,7 +182,7 @@ export default function MensSummit2026({ baseUrl }: { baseUrl: string }) {
 				<section className="container section closing">
 					<p className="eyebrow">Join Us</p>
 					<p className="closing-line">Saturday, September 26</p>
-					<p className="closing-where">8:00 AM – 2:30 PM &middot; Fellowship Hall</p>
+					<p className="closing-where">8:00 AM – 2:00 PM &middot; Fellowship Hall</p>
 					<p className="closing-sub">Men 18 and up &middot; $25 includes breakfast and lunch</p>
 					<a className="register" href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer">
 						Register Now
