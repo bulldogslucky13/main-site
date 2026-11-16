@@ -1,3 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/*
+ * Palette borrowed from my Sola Scriptura slide theme.
+ * `scripture` red is reserved for Scripture. Do not use it for decoration.
+ */
+@theme inline {
+	--color-parchment: #f4ecdf;
+	--color-vellum: #e2d3bd;
+	--color-dim: #c9b79c;
+	--color-stone: #8a7a68;
+	--color-umber: #4a3f35;
+	--color-charcoal: #231e1a;
+	--color-ink: #16120f;
+	--color-scripture: #721111;
+	--color-scripture-light: #d0715f;
+
+	--font-display: var(--next-font-display), Georgia, serif;
+	--font-sans: var(--next-font-sans), system-ui, sans-serif;
+	--font-mono: var(--next-font-mono), ui-monospace, monospace;
+}

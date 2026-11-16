@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { projects, strengths } from '../content';
+import { projects, strengths } from '~/client/domains/portfolio/home-page/content';
 
 const label = 'font-mono text-xs uppercase tracking-[0.22em] text-umber dark:text-dim';
 const rule = 'border-ink/15 dark:border-parchment/15';

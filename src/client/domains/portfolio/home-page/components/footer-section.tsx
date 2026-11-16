@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { links } from '../content';
+import { links } from '~/client/domains/portfolio/home-page/content';
 
 const facts = [
 	{
