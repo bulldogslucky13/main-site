@@ -10,10 +10,10 @@ const display = Cormorant_Garamond({
 	subsets: ['latin'],
 	weight: ['500', '600', '700'],
 	style: ['normal', 'italic'],
-	variable: '--font-display',
+	variable: '--next-font-display',
 });
-const sans = Instrument_Sans({ subsets: ['latin'], variable: '--font-sans' });
-const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' });
+const sans = Instrument_Sans({ subsets: ['latin'], variable: '--next-font-sans' });
+const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--next-font-mono' });
 
 export const HomePage: FC = () => (
 	<div

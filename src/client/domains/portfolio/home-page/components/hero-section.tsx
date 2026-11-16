@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { links } from '../content';
+import { links } from '~/client/domains/portfolio/home-page/content';
 
 const Mark: FC<{ children: React.ReactNode }> = ({ children }) => (
 	<mark className="rounded-[0.12em] bg-vellum px-[0.12em] text-inherit dark:bg-umber">{children}</mark>
@@ -36,8 +36,8 @@ const Crafted: FC = () => (
 
 /** The parody. Everything a generated landing page reaches for first. */
 const Slop: FC = () => (
-	<div className="mt-10 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 px-6 py-14 text-center font-sans text-white shadow-2xl sm:mt-16 sm:py-20">
-		<span className="inline-block rounded-full bg-white/20 px-4 py-1 text-sm backdrop-blur">
+	<div className="mt-10 rounded-3xl bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 px-6 py-14 text-center font-sans text-white shadow-2xl sm:mt-16 sm:py-20">
+		<span className="inline-block rounded-full bg-white/20 px-4 py-1 text-sm backdrop-blur-sm">
 			✨ Available for work ✨
 		</span>
 		<h1 className="mx-auto mt-6 max-w-3xl text-4xl font-extrabold sm:text-6xl">
@@ -49,7 +49,7 @@ const Slop: FC = () => (
 		</p>
 		<div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
 			{['⚡ Blazing Fast', '🔒 Secure', '🎨 Beautiful'].map((label) => (
-				<div key={label} className="rounded-2xl border border-white/30 bg-white/10 p-5 font-semibold backdrop-blur">
+				<div key={label} className="rounded-2xl border border-white/30 bg-white/10 p-5 font-semibold backdrop-blur-sm">
 					{label}
 				</div>
 			))}
@@ -65,7 +65,7 @@ export const HeroSection: FC = () => {
 		<header className="mx-auto w-full max-w-6xl px-5 pb-16 pt-6 sm:px-10 sm:pb-24">
 			<nav className="flex items-center justify-between gap-4" aria-label="Primary">
 				<div className="flex items-center gap-3">
-					<div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-full ring-1 ring-stone">
+					<div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full ring-1 ring-stone">
 						<Image src="/headshot.jpeg" alt="Cameron Bristol" fill sizes="40px" priority />
 					</div>
 					<div className="font-mono text-xs uppercase leading-relaxed tracking-[0.18em]">
@@ -100,7 +100,7 @@ export const HeroSection: FC = () => {
 					>
 						<span
 							className={`absolute top-[3px] h-4 w-4 rounded-full bg-ink transition-all dark:bg-parchment ${
-								slop ? 'left-[22px] !bg-white' : 'left-[3px]'
+								slop ? 'left-[22px] bg-white!' : 'left-[3px]'
 							}`}
 						/>
 					</span>

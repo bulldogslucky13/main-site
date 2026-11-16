@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { Print, prints } from '../content';
+import { Print, prints } from '~/client/domains/portfolio/home-page/content';
 
 const Tape: FC = () => (
 	<span
 		aria-hidden="true"
-		className="absolute -top-3 left-1/2 z-10 h-6 w-20 -translate-x-1/2 -rotate-2 bg-vellum/80 shadow-sm dark:bg-dim/70"
+		className="absolute -top-3 left-1/2 z-10 h-6 w-20 -translate-x-1/2 -rotate-2 bg-vellum/80 shadow-xs dark:bg-dim/70"
 	/>
 );
 
