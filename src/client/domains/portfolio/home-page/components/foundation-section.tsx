@@ -13,19 +13,21 @@ export const FoundationSection: FC = () => (
 					Jesus is the center of my life, and He is the reason I think small things are worth doing well. If even eating
 					and drinking can be done for God&rsquo;s glory, so can a form field, a loading state, and a pull request.
 				</p>
-				<p className="mt-4 max-w-xl text-lg leading-relaxed text-umber dark:text-dim">
+			</div>
+
+			<div className="self-center">
+				<figure className="border-l-2 border-scripture pl-6 sm:pl-10 dark:border-scripture-light">
+					<blockquote className="font-display text-3xl font-medium leading-[1.15] text-scripture sm:text-[2.75rem] dark:text-scripture-light">
+						So, whether you eat or drink, or whatever you do, do all to the glory of God.
+					</blockquote>
+					<figcaption className="mt-5 font-mono text-xs uppercase tracking-[0.22em] text-scripture dark:text-scripture-light">
+						1 Corinthians 10:31 <span className="opacity-70">· ESV</span>
+					</figcaption>
+				</figure>
+				<p className="mt-8 max-w-xl text-lg leading-relaxed text-umber dark:text-dim">
 					So the standard isn&rsquo;t &ldquo;good enough to ship.&rdquo; It&rsquo;s whether the work honors Him.
 				</p>
 			</div>
-
-			<figure className="self-center border-l-2 border-scripture pl-6 sm:pl-10 dark:border-scripture-light">
-				<blockquote className="font-display text-3xl font-medium leading-[1.15] text-scripture sm:text-[2.75rem] dark:text-scripture-light">
-					So, whether you eat or drink, or whatever you do, do all to the glory of God.
-				</blockquote>
-				<figcaption className="mt-5 font-mono text-xs uppercase tracking-[0.22em] text-scripture dark:text-scripture-light">
-					1 Corinthians 10:31 <span className="opacity-70">· ESV</span>
-				</figcaption>
-			</figure>
 		</div>
 	</section>
 );
