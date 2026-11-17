@@ -3,8 +3,14 @@ import React, { FC, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { links } from '~/client/domains/portfolio/home-page/content';
 
+/**
+ * Highlight painted on a pseudo-element pushed behind the heading's text (the h1 is `isolate`), so with the tight
+ * display leading the descenders from the line above sit on top of the highlight instead of being clipped by it.
+ */
 const Mark: FC<{ children: React.ReactNode }> = ({ children }) => (
-	<mark className="rounded-[0.12em] bg-vellum px-[0.12em] text-inherit dark:bg-umber">{children}</mark>
+	<mark className="relative bg-transparent text-inherit before:absolute before:inset-x-[-0.1em] before:top-[0.14em] before:bottom-[0.02em] before:-z-10 before:rounded-[0.12em] before:bg-vellum dark:before:bg-umber">
+		{children}
+	</mark>
 );
 
 const Crafted: FC = () => (
@@ -12,7 +18,7 @@ const Crafted: FC = () => (
 		<p className="font-mono text-xs uppercase tracking-[0.22em] text-umber dark:text-dim">
 			Product &amp; software engineer
 		</p>
-		<h1 className="mt-5 max-w-4xl font-display text-[2.9rem] font-semibold leading-[0.98] tracking-[-0.01em] sm:text-7xl lg:text-[5.5rem]">
+		<h1 className="isolate mt-5 max-w-4xl font-display text-[2.9rem] font-semibold leading-[0.98] tracking-[-0.01em] sm:text-7xl lg:text-[5.5rem]">
 			I build software people can feel the <Mark>care</Mark> in.
 		</h1>
 		<p className="mt-8 max-w-2xl text-lg leading-relaxed sm:text-xl">
