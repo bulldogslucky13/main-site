@@ -81,6 +81,69 @@ export const projects: Project[] = [
 	},
 ];
 
+export type Shot = {
+	src: string;
+	alt: string;
+};
+
+export type Screen = {
+	name: string;
+	href?: string;
+	/** Shown in the drawn browser bar. */
+	url: string;
+	blurb: string;
+	/** 1600x1000, raw screen content with no device chrome. */
+	wide: Shot;
+	/** 780x1688, raw screen content with no device chrome. */
+	phone: Shot;
+};
+
+export const screens: Screen[] = [
+	{
+		name: 'Holy Nudge',
+		// No href: without a personal link the live site only shows a "you need your link" screen.
+		url: 'holynudge.cameronbristol.xyz',
+		blurb:
+			'One gentle push each morning when a new student is waiting to hear from a volunteer leader. Built for a church college ministry, so nobody gets forgotten.',
+		wide: {
+			src: '/work/web/holy-nudge-wide.jpg',
+			alt: 'Holy Nudge staff view on a wide screen: the Behind tab lists students waiting on follow-up, grouped by leader, with Text, Call and Open in ChMS buttons',
+		},
+		phone: {
+			src: '/work/web/holy-nudge-phone.jpg',
+			alt: 'Holy Nudge on a phone: a leader’s list greets them by name, says three students would love to hear from them, and shows a card for each student with how many days overdue',
+		},
+	},
+	{
+		name: 'Dogleg',
+		href: links.dogleg,
+		url: 'playdogleg.com',
+		blurb: 'One course a day, two minutes a round, and honest odds on every shot before you take it.',
+		wide: {
+			src: '/work/web/dogleg-wide.jpg',
+			alt: 'Dogleg hole map for a par 4: the ball sits in a fairway bunker 181 yards out, beside Safe, Normal and Aggressive approach options with an odds bar on each',
+		},
+		phone: {
+			src: '/work/web/dogleg-phone.jpg',
+			alt: 'Dogleg on a phone: a 33-foot putt on the green, with Lag, Roll It and Charge options and the make and three-putt odds for each',
+		},
+	},
+	{
+		name: 'Loaves & Lists',
+		href: links.loaves,
+		url: 'loaves-and-lists.cameronbristol.xyz',
+		blurb: 'Our shared grocery list, sorted by aisle and in sync on both phones the moment either of us adds milk.',
+		wide: {
+			src: '/work/web/loaves-wide.jpg',
+			alt: 'Loaves & Lists meal plan on a wide screen: a week of dinners, each dish with who is cooking, when to eat and when to start',
+		},
+		phone: {
+			src: '/work/web/loaves-phone.jpg',
+			alt: 'Loaves & Lists on a phone: a grocery list for one store, grouped by aisle in walking order, with quantities on each item',
+		},
+	},
+];
+
 export type Print = {
 	src: string;
 	alt: string;

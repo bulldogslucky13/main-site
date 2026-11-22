@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { FooterSection } from './components/footer-section';
 import { FoundationSection } from './components/foundation-section';
 import { HeroSection } from './components/hero-section';
+import { ScreensSection } from './components/screens-section';
 import { SlidesSection } from './components/slides-section';
 import { WorkSection } from './components/work-section';
 
@@ -23,6 +24,7 @@ export const HomePage: FC = () => (
 		<main>
 			<FoundationSection />
 			<WorkSection />
+			<ScreensSection />
 			<SlidesSection />
 		</main>
 		<FooterSection />
