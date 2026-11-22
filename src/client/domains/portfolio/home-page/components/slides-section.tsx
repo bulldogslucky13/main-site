@@ -1,10 +1,34 @@
-import { motion } from 'framer-motion';
+import { motion, useInView, useReducedMotion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { Print, prints } from '~/client/domains/portfolio/home-page/content';
+import { INSTANT, useReveal } from '~/client/domains/portfolio/home-page/hooks/use-reveal';
+
+/**
+ * A print is paper: it is laid on the desk from just above, turning into its resting angle as it lands, and only then
+ * is the tape pressed on. `custom` is `{ rotate, delay }`.
+ */
+type Lay = { rotate: number; delay: number };
+
+const printLands: Variants = {
+	hidden: ({ rotate }: Lay) => ({ opacity: 0, y: -36, scale: 1.1, rotate: rotate * -1.5, transition: INSTANT }),
+	shown: ({ rotate, delay }: Lay) => ({
+		opacity: 1,
+		y: 0,
+		scale: 1,
+		rotate,
+		transition: { delay, type: 'spring', stiffness: 210, damping: 22, delayChildren: delay + 0.32 },
+	}),
+};
+
+const tapeSticks: Variants = {
+	hidden: { opacity: 0, scaleX: 0.2, transition: INSTANT },
+	shown: { opacity: 1, scaleX: 1, transition: { duration: 0.18, ease: 'easeOut' } },
+};
 
 const Tape: FC = () => (
-	<span
+	<motion.span
+		variants={tapeSticks}
 		aria-hidden="true"
 		className="absolute -top-3 left-1/2 z-10 h-6 w-20 -translate-x-1/2 -rotate-2 bg-vellum/80 shadow-xs dark:bg-dim/70"
 	/>
@@ -25,6 +49,22 @@ const PrintCard: FC<{ print: Print }> = ({ print }) => (
 		<figcaption className="px-1 py-2 font-display text-lg italic leading-none text-umber">{print.caption}</figcaption>
 	</figure>
 );
+
+/** Touch layout: each print is laid down as it scrolls into view. */
+const StackedPrint: FC<{ print: Print; index: number }> = ({ print, index }) => {
+	const { ref, pose } = useReveal<HTMLDivElement>();
+	return (
+		<motion.div
+			ref={ref}
+			initial={false}
+			animate={pose}
+			variants={printLands}
+			custom={{ rotate: index % 2 === 0 ? -1 : 1, delay: 0 }}
+		>
+			<PrintCard print={print} />
+		</motion.div>
+	);
+};
 
 /** Drag only where there is room and a fine pointer; touch screens get a plain stack. */
 const useDesk = () => {
@@ -51,6 +91,8 @@ export const SlidesSection: FC = () => {
 	const bounds = useRef<HTMLDivElement>(null);
 	const [deskWidth, setDeskWidth] = useState(0);
 	const [order, setOrder] = useState<string[]>(() => prints.map((print) => print.src));
+	const reduce = useReducedMotion();
+	const onDesk = useInView(bounds, { once: true, margin: '0px 0px -25% 0px' });
 
 	useEffect(() => {
 		const element = bounds.current;
@@ -105,9 +147,13 @@ export const SlidesSection: FC = () => {
 				{desk ? (
 					<>
 						<div ref={bounds} className="relative mt-14" style={{ height: DESK_HEIGHT }}>
-							{prints.map((print) => (
+							{prints.map((print, index) => (
 								<motion.div
 									key={print.src}
+									variants={printLands}
+									custom={{ rotate: print.desk.rotate, delay: index * 0.14 }}
+									initial={reduce ? false : 'hidden'}
+									animate={onDesk || reduce ? 'shown' : 'hidden'}
 									drag
 									dragConstraints={constraintsFor(print)}
 									dragElastic={0.15}
@@ -115,7 +161,6 @@ export const SlidesSection: FC = () => {
 									onPointerDown={() => lift(print.src)}
 									whileHover={{ scale: 1.02 }}
 									whileDrag={{ scale: 1.05, rotate: 0 }}
-									initial={{ rotate: print.desk.rotate }}
 									style={{
 										left: print.desk.left,
 										top: print.desk.top,
@@ -135,9 +180,7 @@ export const SlidesSection: FC = () => {
 				) : (
 					<div className="mt-12 grid gap-10 sm:grid-cols-2">
 						{stacked.map((print, index) => (
-							<div key={print.src} style={{ transform: `rotate(${index % 2 === 0 ? -1 : 1}deg)` }}>
-								<PrintCard print={print} />
-							</div>
+							<StackedPrint key={print.src} print={print} index={index} />
 						))}
 					</div>
 				)}
