@@ -19,3 +19,33 @@
 	--font-sans: var(--next-font-sans), system-ui, sans-serif;
 	--font-mono: var(--next-font-mono), ui-monospace, monospace;
 }
+
+/*
+ * The hero's highlight is drawn the way a highlighter is: a beat after the page appears, one stroke left to right,
+ * quickest as the tip lands and easing off as the hand reaches the end of the word. Pure CSS so it plays from first
+ * paint, before hydration and without JS. `inline` keeps the `var()`s unresolved until they reach the element, so the
+ * hero can retime the stroke for when it is redrawn. Lifting it off is the stroke undone, quickly.
+ */
+@theme inline {
+	--animate-highlight-stroke: highlight-stroke var(--stroke-duration, 0.55s) cubic-bezier(0.3, 0.6, 0.45, 1)
+		var(--stroke-delay, 0.35s) both;
+	--animate-highlight-lift: highlight-lift 0.14s ease-in both;
+
+	@keyframes highlight-stroke {
+		from {
+			clip-path: inset(0 100% 0 0);
+		}
+		to {
+			clip-path: inset(0 0 0 0);
+		}
+	}
+
+	@keyframes highlight-lift {
+		from {
+			clip-path: inset(0 0 0 0);
+		}
+		to {
+			clip-path: inset(0 100% 0 0);
+		}
+	}
+}
